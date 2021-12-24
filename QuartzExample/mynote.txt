@@ -1,0 +1,31 @@
+﻿WithCronSchedule("0 0/1 * * * ? *")
+
+1) Saniye = 0-59
+2) Dakika = 0-59
+3) Saat = 0-23
+4) Ay için Gün = 0-31
+5) Ay (JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV ve DEC)
+6) Hafta için Gün (SUN, MON, TUE, WED, THU, FRI ve SAT)
+7) Yıl
+
+// Bu kod ile 5 dakika da bir işlem çalışır.
+// Buradaki 0/5 'in anlamı. 0 dan bağla ve her 5 dakika da bir çalış.
+WithCronSchedule("0 0/5 * * * ? *")
+
+// Bir diğer tanımla 5. dakikada başla 15 dakika da bir tekrarla.
+WithCronSchedule("0 5/15 * * * ? *")
+
+// Bu kod ile her saatin 5. dakikasında çalışır. Dikkat ederseniz 2. alandaki 0/5 veya 5/15 yerine sadece 5 yazdım. 
+WithCronSchedule("0 5 * * * ? *")
+
+// Burada 8-12 saatleri arasında 30uncu dakikada çalıştır.
+// Yani 8:30, 9:30, 10:30, 11:30, 12:30 saatlerinde çalışacak.
+WithCronSchedule("0 30 8-12 * * ? *")
+
+
+// Her yıl, Ocak, Şubat, Mart, Nisan, Mayıs (JAN-MAY) aylarında,
+Pazartesi, Çarşamba, Cuma (SUN,TUE,FRI) günlerinde, 
+ayın 2,5,6,7,8,9,10 günlerinde
+saat 12'de çalıştır.
+
+WithCronSchedule("0 0 12 2,5-10 JAN-MAY SUN,TUE,FRI *")
